@@ -1,0 +1,18 @@
+{
+  "transactions": [
+    {"date": "2024-01-05", "amount": -3000, "type": "vendor"},
+    {"date": "2024-01-10", "amount": -8000, "type": "payroll"},
+    {"date": "2024-01-15", "amount": -1200, "type": "vendor"},
+    {"date": "2024-01-20", "amount": -7000, "type": "payroll"},
+    {"date": "2024-02-01", "amount": -2500, "type": "vendor"},
+    {"date": "2024-02-10", "amount": -9000, "type": "payroll"},
+    {"date": "2024-02-17", "amount": -3000, "type": "vendor"},
+    {"date": "2024-02-22", "amount": -7500, "type": "payroll"},
+    {"date": "2024-03-01", "amount": -3100, "type": "vendor"},
+    {"date": "2024-03-10", "amount": -8500, "type": "payroll"},
+    {"date": "2024-03-18", "amount": -1500, "type": "vendor"}
+  ],
+  "payroll_dates": ["2024-04-10", "2024-05-10", "2024-06-10"],
+  "recurring_vendors_monthly": 9000,
+  "current_cash": 75000
+}

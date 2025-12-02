@@ -1,0 +1,36 @@
+.skeleton-card {
+  background: var(--card-bg);
+  border-radius: 1.8vh;
+  padding: 2.5vh 2vw;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.skeleton-line {
+  height: 1.6vh;
+  width: 70%;
+  border-radius: 999px;
+  margin-bottom: 1vh;
+  background: linear-gradient(
+    90deg,
+    rgba(148, 163, 184, 0.3),
+    rgba(209, 213, 219, 0.6),
+    rgba(148, 163, 184, 0.3)
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-line.short {
+  width: 40%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

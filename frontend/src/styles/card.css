@@ -1,0 +1,39 @@
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border-radius: 1.8vh;
+  padding: 2.5vh 2vw;
+  box-shadow: 0 1vh 2.2vh rgba(15, 23, 42, 0.18);
+  width: 100%;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1vh;
+}
+
+.card-title {
+  font-size: 2vh;
+  font-weight: 600;
+}
+
+.card-tag {
+  font-size: 1.5vh;
+  padding: 0.3vh 0.8vw;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.card-value {
+  font-size: 3.2vh;
+  margin-top: 0.5vh;
+}
+
+.card-muted {
+  font-size: 1.7vh;
+  color: var(--text-muted);
+  margin-top: 0.5vh;
+}
