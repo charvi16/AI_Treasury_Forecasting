@@ -110,11 +110,11 @@ export default function App() {
         )}
 
         {/* Download PDF button */}
-        <div style={{ marginTop: "3vh" }}>
+        {/* <div style={{ marginTop: "3vh" }}>
           <a href="http://localhost:8000/report/pdf" target="_blank" rel="noreferrer">
             <button className="toggle-btn">📄 Download PDF Financial Report</button>
           </a>
-        </div>
+        </div> */}
       </main>
     </div>
   );

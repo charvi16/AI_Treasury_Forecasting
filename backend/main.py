@@ -9,8 +9,8 @@ from model.forecast import (
 )
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
-from reportlab.lib.pagesizes import A4
-from reportlab.pdfgen import canvas
+# from reportlab.lib.pagesizes import A4
+# from reportlab.pdfgen import canvas
 from io import BytesIO
 
 app = FastAPI()
@@ -59,48 +59,48 @@ def get_forecast():
     }
 
 
-@app.get("/report/pdf")
-def download_pdf():
+# @app.get("/report/pdf")
+# def download_pdf():
 
-    with open("data/transactions.json") as f:
-        raw = json.load(f)
+#     with open("data/transactions.json") as f:
+#         raw = json.load(f)
 
-    df = prepare_timeseries(raw["transactions"])
-    forecast_90 = linear_forecast(df, 90)
-    burn_rate = calculate_burn_rate(df)
-    risk_score, runway = calculate_risk_score(raw["current_cash"], burn_rate)
+#     df = prepare_timeseries(raw["transactions"])
+#     forecast_90 = linear_forecast(df, 90)
+#     burn_rate = calculate_burn_rate(df)
+#     risk_score, runway = calculate_risk_score(raw["current_cash"], burn_rate)
 
-    buffer = BytesIO()
-    c = canvas.Canvas(buffer, pagesize=A4)
+#     buffer = BytesIO()
+#     c = canvas.Canvas(buffer, pagesize=A4)
 
-    width, height = A4
+#     width, height = A4
 
-    # Title
-    c.setFont("Helvetica-Bold", 18)
-    c.drawString(50, height - 50, "AI Treasury Financial Report")
+#     # Title
+#     c.setFont("Helvetica-Bold", 18)
+#     c.drawString(50, height - 50, "AI Treasury Financial Report")
 
-    c.setFont("Helvetica", 12)
-    c.drawString(50, height - 100, f"Risk Score: {risk_score}")
-    c.drawString(50, height - 120, f"Runway: {runway:.1f} months")
-    c.drawString(50, height - 140, f"Burn Rate: {burn_rate:.2f} INR/month")
+#     c.setFont("Helvetica", 12)
+#     c.drawString(50, height - 100, f"Risk Score: {risk_score}")
+#     c.drawString(50, height - 120, f"Runway: {runway:.1f} months")
+#     c.drawString(50, height - 140, f"Burn Rate: {burn_rate:.2f} INR/month")
 
-    y = height - 180
-    c.drawString(50, y, "Next 5 Forecasted Days:")
-    y -= 20
+#     y = height - 180
+#     c.drawString(50, y, "Next 5 Forecasted Days:")
+#     y -= 20
 
-    for row in forecast_90[:5]:
-        c.drawString(60, y, f"Day {row['day']}: {row['amount']:.2f} INR")
-        y -= 20
+#     for row in forecast_90[:5]:
+#         c.drawString(60, y, f"Day {row['day']}: {row['amount']:.2f} INR")
+#         y -= 20
 
-    c.showPage()
-    c.save()
-    buffer.seek(0)
+#     c.showPage()
+#     c.save()
+#     buffer.seek(0)
 
-    return StreamingResponse(
-        buffer,
-        media_type="application/pdf",
-        headers={"Content-Disposition": "attachment; filename=treasury_report.pdf"},
-    )
+#     return StreamingResponse(
+#         buffer,
+#         media_type="application/pdf",
+#         headers={"Content-Disposition": "attachment; filename=treasury_report.pdf"},
+#     )
 
 if __name__ == "__main__":
     import uvicorn
