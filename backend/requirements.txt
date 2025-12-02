@@ -3,4 +3,5 @@ uvicorn
 pandas
 scikit-learn
 python-dateutil
-reportlab
+numpy
+reportlab==3.6.13
